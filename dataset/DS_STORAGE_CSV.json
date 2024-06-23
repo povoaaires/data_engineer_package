@@ -20,7 +20,7 @@
             },
             "ls_storage": {
                 "type": "string",
-                "defaultValue": "saequipecomercialnprod"
+                "defaultValue": "storageaccount"
             },
             "container": {
                 "type": "string"
