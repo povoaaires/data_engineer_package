@@ -1,0 +1,44 @@
+{
+    "name": "DS_SQL_SERVER",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "LS_SQLSERVER",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "sqlserver_string_connection": {
+                    "value": "@dataset().sqlserver_string_connection",
+                    "type": "Expression"
+                }
+            }
+        },
+        "parameters": {
+            "schema": {
+                "type": "string"
+            },
+            "tabela": {
+                "type": "string"
+            },
+            "sqlserver_string_connection": {
+                "type": "string",
+                "defaultValue": "kv-string-sql-equipecomercial-cml"
+            }
+        },
+        "folder": {
+            "name": "TRANSACIONAL"
+        },
+        "annotations": [],
+        "type": "SqlServerTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": {
+                "value": "@dataset().schema",
+                "type": "Expression"
+            },
+            "table": {
+                "value": "@dataset().tabela",
+                "type": "Expression"
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,104 @@
+{
+    "name": "DS_STORAGE_CSV",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "LS_ADLS_PARAMERTRIZADO",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "storage": {
+                    "value": "@dataset().ls_storage",
+                    "type": "Expression"
+                }
+            }
+        },
+        "parameters": {
+            "database": {
+                "type": "string"
+            },
+            "table": {
+                "type": "string"
+            },
+            "ls_storage": {
+                "type": "string",
+                "defaultValue": "saequipecomercialnprod"
+            },
+            "container": {
+                "type": "string"
+            },
+            "compression_type": {
+                "type": "string"
+            },
+            "column_delimiter": {
+                "type": "string"
+            },
+            "compression_level": {
+                "type": "string"
+            },
+            "row_delimiter": {
+                "type": "string"
+            },
+            "encoding": {
+                "type": "string"
+            },
+            "quote_character": {
+                "type": "string"
+            },
+            "escape_character": {
+                "type": "string"
+            }
+        },
+        "folder": {
+            "name": "ADLS"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": {
+                    "value": "@dataset().table",
+                    "type": "Expression"
+                },
+                "folderPath": {
+                    "value": "@dataset().database",
+                    "type": "Expression"
+                },
+                "fileSystem": {
+                    "value": "@dataset().container",
+                    "type": "Expression"
+                }
+            },
+            "columnDelimiter": {
+                "value": "@dataset().column_delimiter",
+                "type": "Expression"
+            },
+            "rowDelimiter": {
+                "value": "@dataset().row_delimiter",
+                "type": "Expression"
+            },
+            "compressionCodec": {
+                "value": "@dataset().compression_type",
+                "type": "Expression"
+            },
+            "compressionLevel": {
+                "value": "@dataset().compression_level",
+                "type": "Expression"
+            },
+            "encodingName": {
+                "value": "@dataset().encoding",
+                "type": "Expression"
+            },
+            "escapeChar": {
+                "value": "@dataset().escape_character",
+                "type": "Expression"
+            },
+            "firstRowAsHeader": true,
+            "quoteChar": {
+                "value": "@dataset().quote_character",
+                "type": "Expression"
+            }
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

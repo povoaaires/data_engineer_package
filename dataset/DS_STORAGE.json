@@ -1,0 +1,49 @@
+{
+    "name": "DS_STORAGE",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "LS_ADLS_PARAMERTRIZADO",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "storage": {
+                    "value": "@dataset().ls_storage",
+                    "type": "Expression"
+                }
+            }
+        },
+        "parameters": {
+            "database": {
+                "type": "string"
+            },
+            "tabela": {
+                "type": "string"
+            },
+            "ls_storage": {
+                "type": "string",
+                "defaultValue": "saequipecomercialnprod"
+            }
+        },
+        "folder": {
+            "name": "ADLS"
+        },
+        "annotations": [],
+        "type": "Parquet",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": {
+                    "value": "@dataset().tabela",
+                    "type": "Expression"
+                },
+                "folderPath": {
+                    "value": "@dataset().database",
+                    "type": "Expression"
+                },
+                "fileSystem": "sandbox"
+            },
+            "compressionCodec": "snappy"
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
