@@ -20,7 +20,7 @@
             },
             "sqlserver_string_connection": {
                 "type": "string",
-                "defaultValue": "kv-string-sql-equipecomercial-cml"
+                "defaultValue": "kv-string-sql"
             }
         },
         "folder": {
